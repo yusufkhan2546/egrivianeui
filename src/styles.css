@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+
+.txt-area textarea{
+   height:150px!important;
+}
+.example-full-width{
+   width:100%;
+   padding-right:10px;
+}
+.login-page{
+   background: url('../src/assets/img/loginbackground.jpg') 100% 0 repeat-y fixed;
+  background-size: cover;
+  background-position: center center;
+  display: -webkit-box;
+  display: -webkit-flex;
+   display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+   align-items: center;
+  height: 100vh;
+  position: relative;
+  text-align: right;
+}
+#chart .apexcharts-canvas{
+   padding-left:21px;
+}
+.statusForm{
+   -webkit-box-align: center;
+   -webkit-align-items: center;
+   -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    padding-left: 150px;
+    padding-top: 10px;;
+}
+mat-datepicker-toggle button{
+   height:25px!important;
+   margin-right:10px!important;
+}
+#datePickerbutton{
+   padding-right: 1px;
+   width: 0px;
+   height: 0px;
+   padding-left: 23px;
+
+}
+.home-two-style {
+	background-image: url(assets/img/home-2-bg.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+	background-color: #009fff;
+}

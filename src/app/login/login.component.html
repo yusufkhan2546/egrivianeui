@@ -1,0 +1,280 @@
+<!-- <img class="wave" src="assets/img/wave.png">
+	<div class="container">
+		<div class="img">
+			<img src="assets/img/bg.svg">
+		</div>
+		<div class="login-content">
+			<div class="card text-white bg-dark mb-3">
+				<div class="card-header">
+                   <h1>E-Grivinance</h1>
+				</div>
+				<div class="card-body">
+                   <div class="loginForm" [formGroup]="loginForm">
+					<mat-form-field class="example-full-width">
+						<mat-label>Email</mat-label>
+						<input matInput type="email" formControlName="email"[ngModelOptions]="{standalone: true}"  [(ngModel)]="email">
+						<button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+						  <mat-icon>close</mat-icon>
+						</button>
+					  </mat-form-field>
+					<mat-form-field class="example-full-width">
+						<mat-label>Password</mat-label>
+						<input matInput type="password" formControlName="password"[ngModelOptions]="{standalone: true}" #confirm [(ngModel)]="password">
+						<button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+						  <mat-icon>close</mat-icon>
+						</button>
+					  </mat-form-field>
+				   </div>
+				   <button [disabled]="loading" class="btn btn-primary"  (click)="login()">
+					<span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+					Login
+				</button>
+				</div>
+			</div>
+        </div>
+	</div> -->
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+			 <div class="col-md-4 col-sm-6">
+				 <div class="card-container">
+					<div class="card">
+						<div class="front">
+							<div class="cover">
+								<img src="assets/img/rotating_card_thumb2.png"/>
+							</div>
+							<div class="user">
+								<img class="img-circle" src="assets/img/admin.png"/>
+							</div>
+							<div class="content">
+								<div class="main">
+									<h3 class="name">Admin</h3>
+									<p class="profession">Login</p>
+									<p class="text-center"></p>
+								</div>
+								<div class="footer">
+									<i class="fa fa-mail-forward"></i> Auto Rotation
+								</div>
+							</div>
+						</div> <!-- end front panel -->
+						<div class="back">
+							<div class="header">
+								<h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+							</div>
+							<div class="content">
+								<div class="main">
+									<div class="loginForm" [formGroup]="loginForm">
+										<mat-form-field class="example-full-width">
+											<mat-label>Email</mat-label>
+											<input matInput type="email" formControlName="email">
+										
+										  </mat-form-field>
+										<mat-form-field class="example-full-width">
+											<mat-label>Password</mat-label>
+											<input matInput type="password" formControlName="password">
+											
+										  </mat-form-field>
+									   </div>
+	
+									<!-- <div class="stats-container">
+										<div class="stats">
+											<h4>235</h4>
+											<p>
+												Followers
+											</p>
+										</div>
+										<div class="stats">
+											<h4>114</h4>
+											<p>
+												Following
+											</p>
+										</div>
+										<div class="stats">
+											<h4>35</h4>
+											<p>
+												Projects
+											</p>
+										</div>
+									</div> -->
+									<button [disabled]="loading" class="btn btn-primary"  (click)="login()">
+										<span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+										Login
+									</button>
+								</div>
+							</div>
+							<div class="footer">
+								<div class="social-links text-center">
+									<a href="#" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+									<a href="#" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+									<a href="#" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+								</div>
+							</div>
+						</div> <!-- end back panel -->
+					</div> <!-- end card -->
+				</div> <!-- end card-container -->
+			</div> <!-- end col sm 3 -->
+	<!--         <div class="col-sm-1"></div> -->
+	<div class="col-md-4 col-sm-6 " >
+		<div class="card-container">
+			<div class="card">
+				<div class="front">
+					<div class="cover">
+						<img src="assets/img/rotating_card_thumb.png"/>
+					</div>
+					<div class="user">
+						<img class="img-circle" src="assets/img/guest.jpg"/>
+					</div>
+					<div class="content">
+						<div class="main">
+							<h3 class="name">Guest</h3>
+							<p class="profession">Login</p>
+
+							<p class="text-center"></p>
+						</div>
+						<div class="footer">
+							<div class="rating">
+								<i class="fa fa-mail-forward"></i> Auto Rotation
+							</div>
+						</div>
+					</div>
+				</div> <!-- end front panel -->
+				<div class="back">
+					<div class="header">
+						<h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+					</div>
+					<div class="content">
+						<div class="main">
+							<div class="loginForm" [formGroup]="loginForm">
+								<mat-form-field class="example-full-width">
+									<mat-label>Email</mat-label>
+									<input matInput type="email" formControlName="email" >
+								
+								  </mat-form-field>
+								<mat-form-field class="example-full-width">
+									<mat-label>Password</mat-label>
+									<input matInput type="password" formControlName="password">
+								  </mat-form-field>
+							   </div>
+
+							<!-- <div class="stats-container">
+								<div class="stats">
+									<h4>235</h4>
+									<p>
+										Followers
+									</p>
+								</div>
+								<div class="stats">
+									<h4>114</h4>
+									<p>
+										Following
+									</p>
+								</div>
+								<div class="stats">
+									<h4>35</h4>
+									<p>
+										Projects
+									</p>
+								</div>
+							</div> -->
+							<button [disabled]="loading" class="btn btn-primary"  (click)="login()">
+								<span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+								Login
+							</button>
+						</div>
+					</div>
+					<div class="footer">
+						<div class="social-links text-center">
+							<a href="#" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+							<a href="#" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+							<a href="#" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+						</div>
+					</div>
+				</div> <!-- end back panel -->
+			</div> <!-- end card -->
+		</div> <!-- end card-container -->
+	</div><!-- end col sm 3 -->
+	<!--         <div class="col-sm-1"></div> -->
+			<div class="col-md-4 col-sm-6">
+				<div class="card-container">
+					<div class="card">
+						<div class="front">
+							<div class="cover">
+								<img src="assets/img/rotating_card_thumb3.png"/>
+							</div>
+							<div class="user">
+								<img class="img-circle" src="assets/img/user.jpg"/>
+							</div>
+							<div class="content">
+								<div class="main">
+									<h3 class="name">User</h3>
+									<p class="profession">Login</p>
+	
+									<p class="text-center"></p>
+								</div>
+								<div class="footer">
+									<div class="rating">
+										<i class="fa fa-mail-forward"></i> Auto Rotation
+									</div>
+								</div>
+							</div>
+						</div> <!-- end front panel -->
+						<div class="back">
+							<div class="header">
+								<h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+							</div>
+							<div class="content">
+								<div class="main">
+									<div class="loginForm" [formGroup]="loginForm">
+										<mat-form-field class="example-full-width">
+											<mat-label>Email</mat-label>
+											<input matInput type="email" formControlName="email">
+											
+										  </mat-form-field>
+										<mat-form-field class="example-full-width">
+											<mat-label>Password</mat-label>
+											<input matInput type="password" formControlName="password">
+										
+										  </mat-form-field>
+									   </div>
+	
+									<!-- <div class="stats-container">
+										<div class="stats">
+											<h4>235</h4>
+											<p>
+												Followers
+											</p>
+										</div>
+										<div class="stats">
+											<h4>114</h4>
+											<p>
+												Following
+											</p>
+										</div>
+										<div class="stats">
+											<h4>35</h4>
+											<p>
+												Projects
+											</p>
+										</div>
+									</div> -->
+									<button [disabled]="loading" class="btn btn-primary"  (click)="login()">
+										<span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+										Login
+									</button>
+								</div>
+							</div>
+							<div class="footer">
+								<div class="social-links text-center">
+									<a href="#" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+									<a href="#" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+									<a href="#" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+								</div>
+							</div>
+						</div>  <!-- end back panel -->
+					</div> <!-- end card -->
+				</div> <!-- end card-container -->
+			</div> <!-- end col-sm-3 -->
+			</div> <!-- end col-sm-10 -->
+		</div> <!-- end row -->
+		<div class="space-200"></div>
+	</div>

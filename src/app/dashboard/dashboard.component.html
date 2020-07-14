@@ -1,0 +1,150 @@
+<div class="panel-header panel-header-lg">
+    <!-- <canvas baseChart id="bigDashboardChart"
+                [datasets]="lineBigDashboardChartData"
+                [labels]="lineBigDashboardChartLabels"
+                 [colors]="lineBigDashboardChartColors"
+                [options]="lineBigDashboardChartOptions"
+                [chartType]="lineBigDashboardChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas> -->
+                <div id="chart1">
+                  <!-- <apx-chart [series]="chartOptions.series" [dataLabels]="chartOptions.dataLabels" [stroke]="chartOptions.stroke"[chart]="chartOptions.chart" [title]="chartOptions.title" [legend]="chartOptions.legend" [yaxis]="chartOptions.yaxis"[xaxis]="chartOptions.xaxis"></apx-chart> -->
+                </div>
+</div>
+
+<div class="main-content">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="card card-chart">
+        <div class="card-header">
+          <h5 class="card-category">Issues Raised</h5>
+          <h4 class="card-title">Status Wise</h4>
+          <div ngbDropdown>
+            <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" ngbDropdownToggle>
+              <i class="now-ui-icons loader_gear"></i>
+            </button>
+            <div ngbDropdownMenu class="dropdown-menu-right">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item text-danger" href="#">Remove Data</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="chart-area">
+            <!-- <canvas baseChart id="lineChartExample"
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [colors]="lineChartColors"
+                        [options]="lineChartOptions"
+                        [chartType]="lineChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas> -->
+                        <div id="chart">
+                          <apx-chart
+                            [series]="chartOptions1.series"
+                            [chart]="chartOptions1.chart"
+                            [labels]="chartOptions1.labels"
+                            [fill]="chartOptions1.fill"
+                            [dataLabels]="chartOptions1.dataLabels"
+                            [responsive]="chartOptions1.responsive"
+                            [legend]="chartOptions1.legend"
+                          ></apx-chart>
+                        </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <i class="now-ui-icons arrows-1_refresh-69"></i> Just   Updated
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <div class="card card-chart">
+        <div class="card-header">
+          <h5 class="card-category">Issues Raised</h5>
+          <h4 class="card-title">Complexity</h4>
+          <div ngbDropdown>
+            <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" ngbDropdownToggle>
+              <i class="now-ui-icons loader_gear"></i>
+            </button>
+            <div ngbDropdownMenu class="dropdown-menu-right">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item text-danger" href="#">Remove Data</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="chart-area">
+            <!-- <canvas id="lineChartExampleWithNumbersAndGrid"></canvas> -->
+            <!-- <canvas baseChart id="lineChartExampleWithNumbersAndGrid"
+                        [datasets]="lineChartWithNumbersAndGridData"
+                        [labels]="lineChartWithNumbersAndGridLabels"
+                        [colors]="lineChartWithNumbersAndGridColors"
+                        [options]="lineChartWithNumbersAndGridOptions"
+                        [chartType]="lineChartWithNumbersAndGridType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas> -->
+                        <div id="chart">
+                          <apx-chart
+                            [series]="chartOptions2.series"
+                            [chart]="chartOptions2.chart"
+                            [labels]="chartOptions2.labels"
+                            [fill]="chartOptions2.fill"
+                            [dataLabels]="chartOptions2.dataLabels"
+                            [responsive]="chartOptions2.responsive"
+                            [legend]="chartOptions2.legend"
+                          ></apx-chart>
+                        </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <i class="now-ui-icons arrows-1_refresh-69"></i> Just    Updated
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <div class="card card-chart">
+        <div class="card-header">
+          <h5 class="card-category">Analytics</h5>
+          <h4 class="card-title">Jonour Wise</h4>
+        </div>
+        <div class="card-body">
+          <div class="chart-area">
+            <!-- <canvas baseChart id="barChartSimpleGradientsNumbers"
+                        [datasets]="lineChartGradientsNumbersData"
+                        [labels]="lineChartGradientsNumbersLabels"
+                        [colors]="lineChartGradientsNumbersColors"
+                        [options]="lineChartGradientsNumbersOptions"
+                        [chartType]="lineChartGradientsNumbersType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas> -->
+                        <div id="chart">
+                          <apx-chart
+                            [series]="chartOptions3.series"
+                            [chart]="chartOptions3.chart"
+                            [labels]="chartOptions3.labels"
+                            [fill]="chartOptions3.fill"
+                            [dataLabels]="chartOptions3.dataLabels"
+                            [responsive]="chartOptions3.responsive"
+                            [legend]="chartOptions3.legend"
+                          ></apx-chart>
+                        </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <i class="now-ui-icons arrows-1_refresh-69"></i> Just    Updated
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

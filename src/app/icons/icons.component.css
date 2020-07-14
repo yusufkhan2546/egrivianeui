@@ -1,0 +1,23 @@
+.header {
+   
+    background-color:black;
+    text-align: center;
+}
+
+.header:hover{
+    background-color:white;
+}
+th{
+    color:white;
+    text-align: center;
+}
+th:hover{
+    color:black;
+}
+td:hover {
+    background-color: beige;
+    text-align: center;
+    font-size: larger;
+}
+
+

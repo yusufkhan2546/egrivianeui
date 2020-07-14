@@ -1,0 +1,58 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+         
+        </div>
+        <div class="card-body all-icons">
+          <div class="row">
+            <div class="mat-elevation-z8 example-full-width" >
+              <table mat-table [dataSource]="dataSource" style="overflow:scroll!important;">
+            
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                  <th mat-header-cell *matHeaderCellDef width="220px;">Unique Token Number</th>
+                  <td mat-cell *matCellDef="let element"> {{getFileNum(element?._id)}} </td>
+                </ng-container>
+            
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef width="173px;"> Place </th>
+                  <td mat-cell *matCellDef="let element"> {{element?.place}} </td>
+                </ng-container>
+            
+                <!-- Weight Column -->
+                <ng-container matColumnDef="weight" >
+                  <th mat-header-cell *matHeaderCellDef width="173px;"> Jonour </th>
+                  <td mat-cell *matCellDef="let element"> {{getJonour(element?.issueJonour)}} </td>
+                </ng-container>
+            
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="symbol">
+                  <th mat-header-cell *matHeaderCellDef width="173px;"> Pincode </th>
+                  <td mat-cell *matCellDef="let element"> {{element?.pincode}} </td>
+                </ng-container>
+                <ng-container matColumnDef="symbol1">
+                  <th mat-header-cell *matHeaderCellDef width="173px;"> Complexity </th>
+                  <td mat-cell *matCellDef="let element"> {{getComplexity(element?.complexity)}} </td>
+                </ng-container>
+                <ng-container matColumnDef="symbol2">
+                  <th mat-header-cell *matHeaderCellDef width="173px;"> Status </th>
+                  <td mat-cell *matCellDef="let element"> {{getStatus(element?.status)}} </td>
+                </ng-container>
+            
+                <tr class="header" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+            
+              <mat-paginator [pageSizeOptions]="[ 10,5, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

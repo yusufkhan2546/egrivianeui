@@ -1,0 +1,60 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header home-two-style">
+        
+        </div>
+        <div class="card-body home-two-style">
+          <header class="header-section">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="site-logo">
+                    <h2><a href="#">E-Grivinance</a></h2>
+                  
+                  </div>
+                </div>
+                <div class="col-md-8 text-md-right header-buttons">
+                  <a href="#" class="site-btn">Change Password</a>
+                  <a routerLink="/register" class="site-btn">Edit Profile</a>
+                </div>
+              </div>
+            </div>
+          </header>
+          <section class="hero-section spad">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="hero-text">
+                        <h2>{{currentUser?.firstName}} {{currentUser?.lastName}}</h2>
+                        <!-- <p>I’m a digital designer in love with photography, painting and discovering new worlds and cultures.</p> -->
+                      </div>
+                      <div class="hero-info">
+                        <h2>General Info</h2>
+                        <ul>
+                          <li><span>Date of Birth</span>{{currentUser?.dob| date}} </li>
+                          <li><span>City</span>{{currentUser?.city}} </li>
+                          <li><span>E-mail</span>{{currentUser?.email}} </li>
+                          <li><span>Phone </span>{{currentUser?.phone}} </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 text-md-center">
+                      <figure class="hero-image" >
+                        <img src="assets/img/user.jpg" alt="5" height="300px" width="300px">
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>

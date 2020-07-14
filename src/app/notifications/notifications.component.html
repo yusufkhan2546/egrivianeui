@@ -1,0 +1,126 @@
+<div class="panel-header">
+  <div class="header text-center">
+    <h2 class="title">Issue Form</h2>
+    <p class="category">Please checkout the form
+    </p>
+  </div>
+</div>
+
+<div class="main-content"  [formGroup]="issueForm">
+  <div class="row" >
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center ">
+          <h4 class="card-title">Basic Information</h4>
+        </div>
+        <div class="card-body ">
+          <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input (keypress)="textOnly($event)" matInput maxlength="44"formControlName="name" placeholder="Enter Your Name">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Place</mat-label>
+            <input matInput (keypress)="textOnly($event)" matInput maxlength="44" formControlName="place" placeholder="Enter City/Provience" >
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Pin Code</mat-label>
+            <input matInput matInput maxlength="6" minlength="6" formControlName="pincode" type="text" (keypress)="numbersOnly($event)"placeholder="Enter Pincode">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Complexity</mat-label>
+            <mat-select  (selectionChange)="onComplexity($event)">
+              <mat-option disabled>
+                Select One
+            </mat-option>
+              <mat-option value="Stable">
+                  Stable
+              </mat-option>
+              <mat-option value="Mild">
+                Mild
+            </mat-option>
+            <mat-option value="Cevoiur">
+              Cevoiur
+          </mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center">
+          <h4 class="card-title">About the Issue</h4>
+        </div>
+        <div class="card-body ">
+          <mat-form-field class="example-full-width">
+            <mat-label>Jonour</mat-label>
+            <mat-select (selectionChange)="onJonour($event)">
+              <mat-option disabled>
+              Select One
+              </mat-option>
+              <mat-option value="Basic">Basic</mat-option>
+              <mat-option value="Public">Public</mat-option>
+              <mat-option value="Private">Private</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width txt-area">
+            <mat-label>Issue</mat-label>
+            <textarea matInput matInput (keypress)="textOnly($event)" placeholder="description" formControlName="issue"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </div><div class="col-md-12">
+      <div class="col-md-offset-2">
+        <div class="card">
+          <div class="card-body justify-content float-right">
+            <button mat-raised-button color="primary"style="margin-right:10px!important;" type="button" (click)="reset()">Reset</button>
+            <button mat-raised-button color="accent" style="margin-right:10px!important;" type="button"  (click)="submitIssueForm()">Submit</button>
+            <button mat-raised-button color="warn"style="margin-right:10px!important;"    type="button" (click)="cancel()">Cancel</button>
+            <!-- <div class="places-buttons">
+              <div class="row">
+                <div class="col-md-6 ml-auto mr-auto text-center">
+                  <h4 class="card-title">
+                    Notifications Places
+                    <p class="category">Click to view notifications</p>
+                  </h4>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-8 ml-auto mr-auto">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <button class="btn btn-primary btn-block" (click)="showNotification('top','left',1,'hello')">Top Left</button>
+                    </div>
+                    <div class="col-md-4">
+                      <button class="btn btn-primary btn-block" (click)="showNotification('top','center',2,'hi')">Top Center</button>
+                    </div>
+                    <div class="col-md-4">
+                      <button class="btn btn-primary btn-block" (click)="showNotification('top','right',3,'how are you')">Top Right</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-8 ml-auto mr-auto">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <button class="btn btn-primary btn-block" (click)="showNotification('bottom','left',4,'hi')">Bottom Left</button>
+                    </div>
+                    <div class="col-md-4">
+                      <button class="btn btn-primary btn-block" (click)="showNotification('bottom','center',5,'hi')">Bottom Center</button>
+                    </div>
+                    <div class="col-md-4">
+                      <button class="btn btn-primary btn-block" (click)="check()">Bottom Right</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
