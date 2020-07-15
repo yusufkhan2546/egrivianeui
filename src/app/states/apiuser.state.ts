@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 const apiUrl = environment.apiUrl;
 export class UserStateModel {
-  Users:User[];
+   Users:User[];
    currentUser: UserResource;
    active:Boolean;
 }

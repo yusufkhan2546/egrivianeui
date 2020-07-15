@@ -30,6 +30,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import {APP_BASE_HREF} from '@angular/common';
    
 
 
@@ -67,6 +68,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: APP_BASE_HREF, useValue: '/' }
   ],
   bootstrap: [AppComponent]
 })

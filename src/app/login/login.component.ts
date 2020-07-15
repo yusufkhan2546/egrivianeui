@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { AlertService } from '../services/alert.service';
-import { ApiUserState, UserStateModel } from '../states/apiuser.state';
+import { ApiUserState, UserStateModel, User_State_Token } from '../states/apiuser.state';
 import { Observable } from 'rxjs';
 import { Select } from '@ngxs/store';
 import { UserResource } from '../models/user.resource.model';
@@ -23,7 +23,8 @@ import { UserResource } from '../models/user.resource.model';
   `]
 })
 export class LoginComponent implements OnInit {
-  @Select(ApiUserState) user$: Observable<UserStateModel>;
+  @Select(state => state.User_State_Token.currentUser) currentUser$: Observable<UserResource>;
+  @Select(state => state.User_State_Token.active) active$: Observable<Boolean>;
   loading= false;
 
 loginForm:FormGroup;
@@ -42,8 +43,8 @@ loginForm:FormGroup;
      const user1 = JSON.parse(user);
      console.log(user1.user.token,'userafterparse');
      this.userSer.verify(user1.user.token);
-     this.user$.subscribe(res=>{
-       if(res.active){
+     this.active$.subscribe(res=>{
+       if(res){
         this.router.navigate([`/user`]);
        }
      })
@@ -59,9 +60,9 @@ login(){
     this.loading = true;
     this.userSer.login(this.loginForm.value);
     setTimeout(() => {
-      this.user$.subscribe(res =>{
-        console.log(res.currentUser,'fdgdfg');
-        if(res.currentUser && res.currentUser.token !== ''){
+      this.currentUser$.subscribe(res =>{
+        console.log(res,'fdgdfg');
+        if(res && res.token !== ''){
           this.loading = false;
           this.router.navigate([`/user`]);
           this.alert.showNotification('top','right',3,'Login SuccessFully')
@@ -71,7 +72,7 @@ login(){
           this.alert.showNotification('top','right',3,'Authentication Fail')
         }
       })
-    },500);
+    },300);
     
 }
 }
