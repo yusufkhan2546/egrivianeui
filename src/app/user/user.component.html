@@ -5,7 +5,7 @@
         <div class="card-header">
           User Registration
         </div>
-        <div class="card-body" [formGroup]="userForm">
+        <div class="card-body" [formGroup]="userForm" *ngIf="!currentUser" >
           <mat-form-field class="example-full-width">
             <mat-label>Company (disabled)</mat-label>
             <input matInput disabled value="Egrivinance">
@@ -143,13 +143,150 @@
           </table>
 
         </div>
+        <div class="card-body" [formGroup]="updateUserForm" *ngIf="currentUser">
+          <mat-form-field class="example-full-width">
+            <mat-label>Company (disabled)</mat-label>
+            <input matInput disabled value="Egrivinance">
+          </mat-form-field>
+
+          <table class="example-full-width">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>First Name</mat-label>
+                  <input matInput type="text" formControlName="firstName">
+                
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Long Last Name That Will Be Truncated</mat-label>
+               
+                  <input matInput type="text" formControlName="lastName">
+                  
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+
+          <p>
+            <mat-form-field class="example-full-width">
+              <mat-label>Address</mat-label>
+              <textarea  matInput type="text" formControlName="address"></textarea>
+                  
+            </mat-form-field>
+          </p>
+
+          <table class="example-full-width" cellspacing="1">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>City</mat-label>
+                  <input matInput type="text" formControlName="city">
+                 
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>State</mat-label>
+                  <input matInput type="text" formControlName="state">
+                 
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field color="accent" appearance="fill" class="example-full-width">
+                  <mat-label>Date Of Birth</mat-label>
+                  <input matInput [matDatepicker]="picker1" formControlName="dob" >
+                 
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Email</mat-label>
+                 
+                  <input matInput type="email" formControlName="email">
+                
+                </mat-form-field>
+              
+              </td>
+              <!-- <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Password</mat-label>
+                  <input matInput type="password" formControlName="password">
+                  
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Confirm Password</mat-label>
+                  <input disabled matInput type="text">
+                </mat-form-field>
+              </td> -->
+            </tr>
+           
+          </table>
+          <table  class="example-full-width" >
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Phone</mat-label>
+                  <input matInput type="tel" formControlName="phone">
+            
+                </mat-form-field>
+              </td>
+              <td>
+                <div >
+                  <div *ngIf="updateUserForm.valid " class="statusForm">
+                    <h1>Form Valid<span class="material-icons">
+                        emoji_emotions
+                      </span></h1>
+                  </div>
+                  <div *ngIf="updateUserForm.invalid " class="statusForm">
+                    <h1>Form Invalid <span class="material-icons">
+                      sentiment_dissatisfied
+                      </span></h1>
+                  </div>
+                </div>
+              
+              </td>
+            </tr>
+          </table>
+          <table class="example-full-width">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Postal Code</mat-label>
+                    <input matInput #postalCode maxlength="6" type="text" formControlName="pincode"
+                    placeholder="Ex. 941056">
+                   
+                  <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                </mat-form-field>
+              </td>
+
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Gender</mat-label>
+                  <input matInput type="text" formControlName="gender">
+                  
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+
+        </div>
       </div>
       <p class="float-right">
         <button mat-raised-button color="primary" type="button" routerLink="/user"
           style="margin-right:10px!important;">Back</button>
         <button mat-raised-button color="primary" type="button" (click)="reset()"
           style="margin-right:10px!important;">Reset</button>
-        <button mat-raised-button color="accent" type="button" (click)="submitUser()"
+        <button mat-raised-button color="accent" type="button"  *ngIf="!currentUser"(click)="submitUser()"
+          style="margin-right:10px!important;">Submit</button>
+          <button mat-raised-button color="accent" type="button" *ngIf="currentUser" (click)="upadateUser()"
           style="margin-right:10px!important;">Submit</button>
         <button mat-raised-button color="warn" type="button" (click)="cancel()"
           style="margin-right:10px!important;">Cancel</button>

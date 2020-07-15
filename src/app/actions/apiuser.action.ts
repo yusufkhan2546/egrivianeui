@@ -25,3 +25,8 @@ export class GetUsers {
      static readonly type = '[User] Verify';
      constructor(public token:string){}
   }
+  export class UpdateUser{
+   static readonly type = '[User] Update' ;
+   constructor( public payload:any[],
+                public userid:String){}
+} 

@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { BehaviorSubject } from 'rxjs';
 // import { User_State_Token } from '../states/apiuser.state';
-import { GetUsers, GetUserById, CreateUser, DeleteUser, LoginUser, Verify } from '../actions/apiuser.action';
+import { GetUsers, GetUserById, CreateUser, DeleteUser, LoginUser, Verify, UpdateUser } from '../actions/apiuser.action';
 import { User } from '../models/user.model';
 import { Login } from '../models/login.model';
 import { User_State_Token } from '../states/apiuser.state';
+import { UserResource } from '../models/user.resource.model';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,9 @@ export class UserService {
   }
   public verify(token){
    return this.store.dispatch(new Verify(token));
+  }
+  public updateUser(payload:any[],id:String){
+      return this.store.dispatch(new UpdateUser(payload,id));
   }
 }
 

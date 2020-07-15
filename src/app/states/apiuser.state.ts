@@ -3,13 +3,14 @@ import { State,Store, StateContext, Action, StateToken } from '@ngxs/store';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { User } from '../models/User.model';
-import { GetUsers, GetUserById, CreateUser, LoginUser, Verify } from '../actions/apiuser.action';
+import { GetUsers, GetUserById, CreateUser, LoginUser, Verify, UpdateUser } from '../actions/apiuser.action';
 
 import { AlertService } from '../services/alert.service';
 import { UserResource } from '../models/user.resource.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { UserService } from '../services/user.service';
 const apiUrl = environment.apiUrl;
 export class UserStateModel {
    Users:User[];
@@ -38,6 +39,7 @@ export class ApiUserState {
               private http:HttpClient,
               private alert:AlertService,
               private router:Router,
+              private user:UserService,
              ){
 }
 @Action(GetUsers)
@@ -66,6 +68,18 @@ public createUser(context:StateContext<UserStateModel>,{User}:CreateUser){
         if(res){
             this.store.dispatch(new GetUsers());
             this.alert.showNotification('top','right',3,'Created SuccessFully');
+        }
+    })
+}
+@Action(UpdateUser)
+public updateUser(context:StateContext<UserStateModel>,{payload, userid }:UpdateUser){
+  console.log("imexex");
+  
+    return this.http.patch(`${apiUrl}/users/${userid}`,payload,{headers}).subscribe(res=>{
+        if(res){
+            this.store.dispatch(new GetUsers());
+            this.alert.showNotification('top','right',3,'Updated SuccessFully Login Required');
+            this.user.logout();
         }
     })
 }

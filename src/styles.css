@@ -8,7 +8,7 @@
    padding-right:10px;
 }
 .login-page{
-   background: url('../src/assets/img/loginbackground.jpg') 100% 0 repeat-y fixed;
+   /* background: url('../src/assets/img/loginbackground.jpg') 100% 0 repeat-y fixed; */
   background-size: cover;
   background-position: center center;
   display: -webkit-box;
