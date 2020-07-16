@@ -7,7 +7,7 @@ export class GetUsers {
  }
  export class GetUserById{
      static readonly type = '[User] GETBYID' ;
-     constructor(public id:string){}
+     constructor(public id:String){}
   } 
   export class CreateUser{
      static readonly type = '[User] Create' ;
@@ -30,3 +30,7 @@ export class GetUsers {
    constructor( public payload:any[],
                 public userid:String){}
 } 
+export class LogOut {
+   static readonly type = '[User] Logout';
+   constructor(){}
+}

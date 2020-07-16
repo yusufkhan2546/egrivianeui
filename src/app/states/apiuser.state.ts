@@ -3,14 +3,12 @@ import { State,Store, StateContext, Action, StateToken } from '@ngxs/store';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { User } from '../models/User.model';
-import { GetUsers, GetUserById, CreateUser, LoginUser, Verify, UpdateUser } from '../actions/apiuser.action';
+import { GetUsers, GetUserById, CreateUser, LoginUser, Verify, UpdateUser, LogOut } from '../actions/apiuser.action';
 
 import { AlertService } from '../services/alert.service';
 import { UserResource } from '../models/user.resource.model';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
-import { UserService } from '../services/user.service';
 const apiUrl = environment.apiUrl;
 export class UserStateModel {
    Users:User[];
@@ -39,7 +37,7 @@ export class ApiUserState {
               private http:HttpClient,
               private alert:AlertService,
               private router:Router,
-              private user:UserService,
+       
              ){
 }
 @Action(GetUsers)
@@ -58,7 +56,7 @@ public getSummary1(context:StateContext<UserStateModel>,{id}:GetUserById){
    if(res){
       const state = context.getState();
       state.currentUser= res;
-      context.patchState(state);
+      context.patchState(state); 
    }
  })
 }
@@ -78,8 +76,8 @@ public updateUser(context:StateContext<UserStateModel>,{payload, userid }:Update
     return this.http.patch(`${apiUrl}/users/${userid}`,payload,{headers}).subscribe(res=>{
         if(res){
             this.store.dispatch(new GetUsers());
-            this.alert.showNotification('top','right',3,'Updated SuccessFully Login Required');
-            this.user.logout();
+            this.alert.showNotification('top','right',3,'Updated SuccessFully ');
+            this.store.dispatch(new GetUserById(userid));
         }
     })
 }
@@ -92,6 +90,7 @@ public login(context:StateContext<UserStateModel>,{loginpay}:LoginUser){
         localStorage.setItem('currentUser', JSON.stringify(res));
         state.currentUser = res.user;
         context.patchState(state);  
+        this.alert.showNotification('top','right',3,'Login SuccessFully')
       }
   })
 }
@@ -106,6 +105,10 @@ public verify(context:StateContext<UserStateModel>,{token}){
       }
       return res;
   })
+}
+@Action(LogOut)
+public logout(){
+  localStorage.clear();
 }
 }
 

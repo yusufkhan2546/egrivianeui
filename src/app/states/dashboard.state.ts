@@ -43,7 +43,7 @@ export class DashBoardState {
           let labels: any[] = [];
           let series: any[] = [];
           res.issue.forEach(item => {
-            labels.push(Status[parseInt(item.status)]);
+            labels.push(item.status);
             series.push(item.count);
           });
           const state = context.getState();
@@ -59,7 +59,7 @@ export class DashBoardState {
           let labels: any[] = [];
           let series: any[] = [];
           res.issue.forEach(item => {
-            labels.push(Complexity[parseInt(item.complexity)]);
+            labels.push(item.complexity);
             series.push(item.count);
           });
           const state = context.getState();
@@ -73,7 +73,7 @@ export class DashBoardState {
          let labels: any[] = [];
           let series: any[] = [];
           res.issue.forEach(item => {
-            labels.push(Jonour[parseInt(item.issueJonour)]);
+            labels.push(item.issueJonour);
             series.push(item.count);
           });
           const state = context.getState();

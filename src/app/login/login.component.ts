@@ -65,7 +65,6 @@ login(){
         if(res && res.token !== ''){
           this.loading = false;
           this.router.navigate([`/user`]);
-          this.alert.showNotification('top','right',3,'Login SuccessFully')
         }
         else{
           this.loading = false;

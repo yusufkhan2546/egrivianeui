@@ -286,7 +286,7 @@
           style="margin-right:10px!important;">Reset</button>
         <button mat-raised-button color="accent" type="button"  *ngIf="!currentUser"(click)="submitUser()"
           style="margin-right:10px!important;">Submit</button>
-          <button mat-raised-button color="accent" type="button" *ngIf="currentUser" (click)="upadateUser()"
+          <button mat-raised-button color="accent" type="button" [disabled]="!updateUserForm.touched"*ngIf="currentUser" (click)="upadateUser()"
           style="margin-right:10px!important;">Submit</button>
         <button mat-raised-button color="warn" type="button" (click)="cancel()"
           style="margin-right:10px!important;">Cancel</button>

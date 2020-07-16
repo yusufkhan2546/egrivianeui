@@ -19,5 +19,19 @@ td:hover {
     text-align: center;
     font-size: larger;
 }
-
+.edit span:hover{
+    color:green;
+}
+.upadte span:hover{
+    color:tomato;
+}
+.delete span:hover{
+color:red;
+}
+td a span{
+margin-right:5px;
+}
+table{
+    cursor: pointer;
+}
 

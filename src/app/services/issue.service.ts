@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { GetIssues, GetIssueById, CreateIssue, DeleteIssue } from '../actions/issue.action';
+import { GetIssues, GetIssueById, CreateIssue, DeleteIssue, UpdateIssue } from '../actions/issue.action';
 import { ISSUE } from '../models/issue.model';
 // import { Issue_State_Token } from '../states/issue.state';
 import { BehaviorSubject } from 'rxjs';
@@ -22,5 +22,8 @@ export class IssueService {
   }
   public deleteIssue(id){
     return this.store.dispatch(new DeleteIssue(id));
+  }
+  public updateIssue(payload:any[],id:String){
+    return this.store.dispatch(new UpdateIssue(payload,id))
   }
 }

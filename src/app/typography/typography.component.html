@@ -4,11 +4,100 @@
   <div class="row">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header home-two-style">
-        
-        </div>
-        <div class="card-body home-two-style">
-          
+        <div class="card-body">
+          <div class="col-md-4 col-sm-6">
+            <div class="card-container manual-flip"style="color:black;background:black;">
+               <div class="card">
+                   <div class="front" >
+                       <div class="cover">
+                           <!-- <img src="images/rotating_card_thumb2.png"/> -->
+                       </div>
+                      <div class="content">
+                        <h1>Name :{{issue?.name}}</h1>
+                      </div>
+                       <div class="content">
+                           <div class="main">
+                               <h3 class="name">City:{{issue?.place}} </h3>
+                               <p class="profession">PINCODE:{{issue?.pincode}}</p>
+                               <p class="text-center">{{issue?.issue}}</p>
+                           </div>
+                           
+                           <div class="footer">
+                            <button class="btn btn-simple"(click)="setStatus()" onclick="rotateCard(this)">
+                              <i class="fa fa-mail-forward"></i> Update Issue Status
+                            </button>
+                           </div>
+                       </div>
+                   </div> <!-- end front panel -->
+                   <div class="back">
+                       <div class="header">
+                           <h5 class="motto">{{getFileNum(issue?._id)}}</h5>
+                       </div>
+                       <div class="content">
+                           <div class="main">
+                               <h4 class="text-center"> Description</h4>
+                               <p class="text-center">{{issue?.issue}}</p>
+
+                               <div class="stats-container">
+                                   <div class="stats">
+                                    <mat-form-field class="example-full-width">
+                                      <mat-label>Status</mat-label>
+                                      <mat-select [formControl]="status">
+
+                                        <mat-option disabled>
+                                          Select One
+                                      </mat-option>
+                                        <mat-option value="Submitted">
+                                            Submitted
+                                        </mat-option>
+                                        <mat-option value="Assigned">
+                                          Assigned
+                                      </mat-option>
+                                      <mat-option value="Active">
+                                        Active
+                                    </mat-option>
+                                    <mat-option value="Solved">
+                                      Solved
+                                  </mat-option>
+                                  <mat-option value="Pending">
+                                    Pending
+                                </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                   </div>
+                                   <div class="stats">
+                                       <h4>{{issue?.issueJonour}}</h4>
+                                       <p>
+                                           Jonour
+                                       </p>
+                                   </div>
+                                   <div class="stats">
+                                       <h4>{{issue?.complexity}}</h4>
+                                       <p>
+                                           Complexity
+                                       </p>
+                                   </div>
+                               </div>
+                               <br>
+                             
+                               
+
+                           </div>
+                           <button [disabled]="getFormStatus()" class="btn btn-simple updatebutton" (click)="update()" onclick="rotateCard(this)">
+                            <i class="fa fa-mail-forward"></i> Update Issue Status
+                          </button>  
+                       </div>
+                       <div class="footer">
+                           <div class="social-links text-center">
+                               <a  class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+                               <a  class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+                               <a  class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+                           </div>
+                       </div>
+                   </div> <!-- end back panel -->
+               </div> <!-- end card -->
+           </div> <!-- end card-container -->
+       </div>
         </div>
       </div>
     </div>

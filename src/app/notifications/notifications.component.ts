@@ -33,10 +33,11 @@ issueForm :FormGroup;
       pincode:['',[Validators.required]],
       issueJonour:['',[Validators.required]],
       complexity:['',[Validators.required]],
-      status:[Status.Solved]
+      status:[''],
     });
   }
 submitIssueForm(){
+  this.issueForm.get('status').setValue('Submitted');
   console.log(this.issueForm)
   if(this.issueForm.valid){
     this.IssuerSer.createIssue(this.issueForm.value);
@@ -48,14 +49,14 @@ submitIssueForm(){
 }
 onJonour(event:MatSelectChange){
   if(event.value){
-    this.issueForm.get('issueJonour').setValue(Jonour[event.value]);
+    this.issueForm.get('issueJonour').setValue(event.value);
   }
 
 }
 onComplexity(event:MatSelectChange){
   console.log(event)
   if(event.value){
-    this.issueForm.get('complexity').setValue(Complexity[event.value]);
+    this.issueForm.get('complexity').setValue(event.value);
   }
 }
 numbersOnly(event){

@@ -4,6 +4,8 @@ import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { UserResource } from '../models/user.resource.model';
 import { Assign } from '../models/Assign.model';
+import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -11,6 +13,7 @@ import { Assign } from '../models/Assign.model';
   styles: []
 })
 export class UserComponent implements OnInit {
+  @Select(state => state.User_State_Token.currentUser) User$: Observable<UserResource>;
   currentUser:UserResource;
   updateUserForm:FormGroup;
   userForm:FormGroup;
@@ -21,6 +24,18 @@ confirm = new FormControl();
               private userSer:UserService,
               private router:Router) { }
   ngOnInit(): void {
+    this.User$.subscribe(res =>{
+      if(res){
+        this.currentUser = res;
+        console.log(res,'hereress');
+        
+      }
+      else {
+        console.log('no rea');
+        
+      }
+    })
+   
     this.userForm = this.fb.group({
       _id:[''],
       firstName:['',[Validators.required]],
@@ -47,10 +62,7 @@ confirm = new FormControl();
       gender:['',[Validators.required]],
       phone:['',[Validators.required]]
     });
-    const user =  localStorage.getItem('currentUser');
-    if(user){
-      const user1 = JSON.parse(user);
-      this.currentUser = user1.user;
+    if(this.currentUser){
       this.mapUser(this.updateUserForm ,this.currentUser);
     }
   }
@@ -69,7 +81,7 @@ confirm = new FormControl();
     if(this.currentUser && this.updateUserForm.valid) {
       const payload = this.mapToUpdate(this.updateUserForm);
       this.userSer.updateUser(payload,this.currentUser._id);
-      this.router.navigate([`/user`]);
+   
     } else {
       this.updateUserForm.markAllAsTouched();
     }
@@ -102,6 +114,7 @@ confirm = new FormControl();
         payload.push(new Assign("pincode",FormGroup.get('pincode').value));
         payload.push(new Assign("phone",FormGroup.get('phone').value));
         payload.push(new Assign("dob",FormGroup.get('dob').value));
+        payload.push(new Assign("gender",FormGroup.get('gender').value));
      }
      return payload;
   }

@@ -3,7 +3,7 @@ import { State,Store, StateContext, Action, StateToken } from '@ngxs/store';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ISSUE } from '../models/issue.model';
-import { GetIssues, GetIssueById, CreateIssue } from '../actions/issue.action';
+import { GetIssues, GetIssueById, CreateIssue, UpdateIssue } from '../actions/issue.action';
 
 import { AlertService } from '../services/alert.service';
 import { environment } from '../../environments/environment';
@@ -59,6 +59,18 @@ public createIssue(context:StateContext<IssueStateModel>,{issue}:CreateIssue){
             this.store.dispatch(new GetIssues());
             this.alert.showNotification('top','right',3,'Created SuccessFully')
              
+        }
+    })
+}
+@Action(UpdateIssue)
+public updateUser(context:StateContext<IssueStateModel>,{payload, issueid }:UpdateIssue){
+  console.log("imexex");
+  
+    return this.http.patch(`${apiUrl}/issues/${issueid}`,payload,{headers}).subscribe(res=>{
+        if(res){
+            this.store.dispatch(new GetIssues());
+            this.alert.showNotification('top','right',3,'Updated SuccessFully Login Required');
+            this.store.dispatch(new GetIssueById(issueid));
         }
     })
 }
