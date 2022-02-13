@@ -30,7 +30,7 @@
     "@ng-bootstrap/ng-bootstrap": "6.0.0",
     "@ngxs/store": "^3.6.2",
     "@swimlane/ngx-charts": "^14.0.0",
-    "ajv": "6.12.0",
+    "ajv": "6.12.3",
     "ajv-keywords": "3.4.1",
     "apexcharts": "^3.19.3",
     "bootstrap": "4.2.1",
